@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Bypass proxy (ru)</title>
+    <link rel="stylesheet" href="css/about.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <a class="back" href="index.html" data-i18n="back">Назад</a>
+        <span class="lang">
+          <button type="button" class="lang__btn" data-lang="ru" aria-pressed="true">RU</button>
+          <span class="lang__sep" aria-hidden="true">/</span>
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+        </span>
+      </div>
+
+      <header class="head">
+        <img class="head__icon" src="img/icon-128.png" alt="" width="72" height="72" />
+        <div>
+          <h1>Bypass proxy (ru)</h1>
+          <p class="head__tag" data-i18n="tag">Российские сайты напрямую, остальное через SOCKS5</p>
+        </div>
+      </header>
+
+      <section lang="ru">
+        <h2>Как работает</h2>
+        <p>
+          Расширение смотрит на имя хоста каждого запроса и выбирает маршрут.
+          Российские домены из списка geosite и ваши собственные правила идут
+          напрямую, всё остальное — через SOCKS5.
+        </p>
+        <p>
+          Если SOCKS5 не задан, используется прокси, настроенный в самом Firefox.
+          Самостоятельно переключаться на прямое соединение расширение не станет.
+        </p>
+      </section>
+
+      <section lang="en" hidden>
+        <h2>How it works</h2>
+        <p>
+          The extension looks at the hostname of every request and picks a route.
+          Russian domains from the geosite list and your own rules go direct,
+          everything else goes through SOCKS5.
+        </p>
+        <p>
+          If SOCKS5 is not set, the proxy configured in Firefox itself is used.
+          The extension will not fall back to a direct connection on its own.
+        </p>
+      </section>
+
+      <section lang="ru">
+        <h2>SOCKS5</h2>
+        <p>
+          Указываются хост и порт, логин и пароль — необязательно. Переключатель
+          «DNS через прокси» включён по умолчанию: DNS-запросы уходят прокси, а не
+          провайдеру. Выключите его, если прокси не умеет резолвить имена.
+        </p>
+        <p>
+          Если прокси недоступен, запросы, которые должны были через него пойти,
+          вернут обычную сетевую ошибку.
+        </p>
+      </section>
+
+      <section lang="en" hidden>
+        <h2>SOCKS5</h2>
+        <p>
+          You provide a host and a port, with username and password optional. The
+          “DNS through proxy” toggle is on by default: DNS queries go to the proxy
+          instead of your provider. Turn it off if the proxy cannot resolve names.
+        </p>
+        <p>
+          If the proxy is unreachable, requests that were meant to go through it
+          return a regular network error.
+        </p>
+      </section>
+
+      <section lang="ru">
+        <h2>Список доменов</h2>
+        <p>
+          Список русских доменов берётся из файла geosite.dat — скомпилированного
+          списка доменных имён по категориям. Расширение выбирает российские
+          категории, разбирает файл локально и хранит результат.
+        </p>
+        <p>
+          Файл скачивается один раз, дальше обновляется по расписанию: каждый
+          день, раз в неделю или раз в месяц — как выбрано в настройках. При
+          неудачном скачивании повтор делается позже, а предыдущий список
+          продолжает работать.
+        </p>
+      </section>
+
+      <section lang="en" hidden>
+        <h2>Domain list</h2>
+        <p>
+          The list of Russian domains comes from geosite.dat, a compiled list of
+          domain names grouped by category. The extension picks the Russian
+          categories, parses the file locally and stores the result.
+        </p>
+        <p>
+          The file is downloaded once, then refreshed on a schedule: daily,
+          weekly or monthly, as chosen in the settings. If a download fails it is
+          retried later, and the previous list keeps working.
+        </p>
+      </section>
+
+      <section lang="ru">
+        <h2>Свои правила</h2>
+        <p>Кроме автоматического списка можно добавить свои правила. Они тоже идут напрямую.</p>
+        <ul class="rules">
+          <li><code>example.com</code> — хост и все поддомены, любой путь</li>
+          <li><code>*.local</code> — только поддомены, сам домен через прокси</li>
+          <li><code>https://site.ru/path</code> — только этот префикс URL</li>
+          <li><code>*://*.cdn.net/*</code> — любая схема, поддомены, любой путь</li>
+        </ul>
+      </section>
+
+      <section lang="en" hidden>
+        <h2>Custom rules</h2>
+        <p>Besides the automatic list you can add your own rules. They go direct as well.</p>
+        <ul class="rules">
+          <li><code>example.com</code> — the host and all subdomains, any path</li>
+          <li><code>*.local</code> — subdomains only, the bare domain goes through the proxy</li>
+          <li><code>https://site.ru/path</code> — this URL prefix only</li>
+          <li><code>*://*.cdn.net/*</code> — any scheme, subdomains, any path</li>
+        </ul>
+      </section>
+
+      <section lang="ru">
+        <h2>Android</h2>
+        <p>
+          Расширение работает в Firefox для Android. Настройки те же: SOCKS5 и
+          расписание обновления списка настраиваются так же, файл скачивается
+          автоматически.
+        </p>
+        <p>Firefox на Android не устанавливает расширения из файлов — только из AMO.</p>
+      </section>
+
+      <section lang="en" hidden>
+        <h2>Android</h2>
+        <p>
+          The extension works in Firefox for Android. The settings are the same:
+          SOCKS5 and the refresh schedule are configured the same way, and the
+          file is downloaded automatically.
+        </p>
+        <p>Firefox on Android does not install extensions from files — only from AMO.</p>
+      </section>
+
+      <section lang="ru">
+        <h2>Приватные окна</h2>
+        <p>
+          Расширение работает и в приватных окнах: правила те же, настройки
+          общие с обычным режимом.
+        </p>
+      </section>
+
+      <section lang="en" hidden>
+        <h2>Private windows</h2>
+        <p>
+          The extension works in private windows too: the same rules apply, and the
+          settings are shared with regular browsing.
+        </p>
+      </section>
+
+      <section lang="ru">
+        <h2>Установка</h2>
+        <p>Поставьте расширение из AMO, откройте настройки и укажите SOCKS5.</p>
+        <div class="install">
+          <a class="btn" href="https://addons.mozilla.org/firefox/addon/bypass-proxy-ru/">AMO</a>
+          <button type="button" class="btn btn--ghost" data-copy="https://addons.mozilla.org/firefox/addon/bypass-proxy-ru/">
+            <span data-copy-label data-i18n="copy">Скопировать ссылку</span>
+          </button>
+        </div>
+      </section>
+
+      <section lang="en" hidden>
+        <h2>Install</h2>
+        <p>Install it from AMO, open the options page and set SOCKS5.</p>
+        <div class="install">
+          <a class="btn" href="https://addons.mozilla.org/firefox/addon/bypass-proxy-ru/">AMO</a>
+          <button type="button" class="btn btn--ghost" data-copy="https://addons.mozilla.org/firefox/addon/bypass-proxy-ru/">
+            <span data-copy-label data-i18n="copy">Copy link</span>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/site.js"></script>
+  </body>
+</html>

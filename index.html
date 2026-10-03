@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bypass proxy (ru)</title>
+    <link rel="stylesheet" href="css/landing.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <p class="lang">
+        <button type="button" class="lang__btn" data-lang="ru" aria-pressed="true">RU</button>
+        <span class="lang__sep" aria-hidden="true">/</span>
+        <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+      </p>
+
+      <button type="button" class="open" data-open data-i18n="open">Расширения Firefox</button>
+    </main>
+
+    <div class="modal" data-modal hidden>
+      <div class="modal__backdrop" data-close></div>
+
+      <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="ext-name">
+        <button type="button" class="modal__close" data-close data-i18n-close aria-label="Закрыть">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <a class="ext" href="about.html">
+          <img class="ext__icon" src="img/icon-128.png" alt="" width="72" height="72" />
+          <span class="ext__name" id="ext-name">Bypass proxy (ru)</span>
+          <span class="ext__text" data-i18n="extText">Российские сайты напрямую, остальное через SOCKS5</span>
+          <span class="ext__go" data-i18n="go">Описание</span>
+        </a>
+      </div>
+    </div>
+
+    <script src="js/site.js"></script>
+  </body>
+</html>
